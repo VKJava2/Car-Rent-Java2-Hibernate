@@ -1,0 +1,15 @@
+0:0:0:0:0:0:0:1 - - [25/Aug/2015:00:51:28 +0300] "GET /java2/ HTTP/1.1" 404 - http-bio-8080-exec-1 0
+0:0:0:0:0:0:0:1 - - [25/Aug/2015:00:51:28 +0300] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-2 0
+0:0:0:0:0:0:0:1 - - [25/Aug/2015:00:51:28 +0300] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-3 0
+0:0:0:0:0:0:0:1 - - [25/Aug/2015:00:51:35 +0300] "GET /java2/ HTTP/1.1" 404 - http-bio-8080-exec-4 0
+0:0:0:0:0:0:0:1 - - [25/Aug/2015:00:51:36 +0300] "GET /java2/ HTTP/1.1" 404 - http-bio-8080-exec-5 0
+0:0:0:0:0:0:0:1 - - [25/Aug/2015:00:52:01 +0300] "GET /java2 HTTP/1.1" 404 - http-bio-8080-exec-6 0
+0:0:0:0:0:0:0:1 - - [25/Aug/2015:00:52:09 +0300] "GET /java2/cars?make=Mazda HTTP/1.1" 404 - http-bio-8080-exec-7 0
+0:0:0:0:0:0:0:1 - - [25/Aug/2015:00:52:11 +0300] "GET /java2/cars?make=Mazda HTTP/1.1" 404 - http-bio-8080-exec-8 0
+0:0:0:0:0:0:0:1 - - [25/Aug/2015:00:52:12 +0300] "GET /java2/cars?make=Mazda HTTP/1.1" 404 - http-bio-8080-exec-9 0
+0:0:0:0:0:0:0:1 - - [25/Aug/2015:23:26:39 +0300] "GET /java2/ HTTP/1.1" 200 140 http-bio-8080-exec-2 231
+0:0:0:0:0:0:0:1 - - [25/Aug/2015:23:26:40 +0300] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-3 0
+0:0:0:0:0:0:0:1 - - [25/Aug/2015:23:26:40 +0300] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-4 0
+0:0:0:0:0:0:0:1 - - [25/Aug/2015:23:26:42 +0300] "GET /java2/motorcycles HTTP/1.1" 200 147 http-bio-8080-exec-5 1012
+0:0:0:0:0:0:0:1 - - [25/Aug/2015:23:38:42 +0300] "GET /java2/ HTTP/1.1" 200 140 http-bio-8080-exec-1 148
+0:0:0:0:0:0:0:1 - - [25/Aug/2015:23:38:44 +0300] "GET /java2/motorcycles HTTP/1.1" 200 147 http-bio-8080-exec-2 510
