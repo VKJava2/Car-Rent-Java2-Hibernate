@@ -91,3 +91,153 @@ values
   ('MiniBus', 'Scania', 'Hispano', '2005', '3.5', 'Diesel', '13.9', '85', '1', '12', '4.9', 'Yellow'),
   ('MiniBus', 'Mercedes-Benz', 'Sprinter', '2013', '2.4', 'Gasoline', '14.4', '105', '1', '3', '50.7', 'Gray'),
   ('MiniBus', 'Ford', 'Transit', '2007', '4.5', 'Diesel', '16.9', '74', '1', '16', '12.6', 'White');
+
+
+-- -------------------------------------------------------------------------
+-- Синтаксис для удаления таблиц
+-- -------------------------------------------------------------------------
+
+DROP TABLE cars;
+
+DROP TABLE vehicles;
+
+DROP TABLE motorcycles;
+
+DROP TABLE personalCar;
+
+DROP TABLE miniBus;
+
+DROP TABLE accessories;
+
+-- -------------------------------------------------------------------------
+-- Селекты из всех таблиц
+-- -------------------------------------------------------------------------
+select *
+from car_rent.vehicles;
+
+select *
+from car_rent.motorcycles;
+
+select *
+from car_rent.personalCar;
+
+select *
+from car_rent.miniBus;
+
+select *
+from car_rent.accessories;
+
+-- -------------------------------------------------------------------------
+-- Новые таблички и заполнение данными
+-- -------------------------------------------------------------------------
+
+
+CREATE TABLE IF NOT EXISTS `car_rent`.`vehicles` (
+  `CarID` bigint(11) NOT NULL AUTO_INCREMENT,
+  `Image` varchar(50) NOT NULL,
+  `VehicleType` varchar(32) NOT NULL,
+  `Make` varchar(32) NOT NULL,
+  `Model` varchar(32) NOT NULL,
+  `ProductionYear` INT(4) NOT NULL,
+  `EngineCapacity` double(2,1) NOT NULL,
+  `FuelType` varchar(32) NOT NULL,
+  `FuelConsumption` double(3,1) NOT NULL,
+  `RentPrice` double(6,2) NOT NULL,
+  `IsAvailable` BOOL NOT NULL,
+  PRIMARY KEY (`CarID`)
+);
+
+CREATE TABLE IF NOT EXISTS `car_rent`.`motorcycles` (
+  `ID` bigint(11) NOT NULL AUTO_INCREMENT,
+  `EngineTypeByStrokes` varchar(32),
+  `DriveType` varchar(32),
+  `MotorcycleType` varchar(32),
+  `CarID` bigint(11),
+  PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE IF NOT EXISTS `car_rent`.`miniBus` (
+  `ID` bigint(11) NOT NULL AUTO_INCREMENT,
+  `MiniBusSeats` int(2),
+  `CargoVolume` double(4,2),
+  `MiniBusColor` varchar(32),
+  `CarID` bigint(11),
+  PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE IF NOT EXISTS `car_rent`.`personalCar` (
+  `ID` bigint(11) NOT NULL AUTO_INCREMENT,
+  `LuxuryType` varchar(32),
+  `NumberOfDoors` varchar(32),
+  `BodyType` varchar(32),
+  `CarID` bigint(11),
+  PRIMARY KEY (`ID`)
+);
+
+
+
+CREATE TABLE IF NOT EXISTS `car_rent`.`accessories` (
+  `AccessoryID` bigint(11) NOT NULL AUTO_INCREMENT,
+  `Accessory` varchar(32) NOT NULL,
+  `RentPrice` double(6,2) NOT NULL,
+  `AvailableFor` varchar(32) NOT NULL,
+  PRIMARY KEY (`AccessoryID`)
+);
+
+-- ------------------------------------------------------------------------------------------------------------------
+
+insert into VEHICLES
+(Image, VehicleType, Make, Model, ProductionYear, EngineCapacity, FuelType, FuelConsumption, RentPrice, IsAvailable)
+values
+  ('toyota_rav4_2014.jpg', 'Motorcycle', 'Honda', 'CB600F Hornet', '2007', '0.6', 'Бензин', '6', '60', '1'),
+  ('toyota_rav4_2014.jpg', 'Motorcycle', 'Harley-Davidson', 'Dyna', '2009', '1.7', 'Бензин', '5.6', '90', '1'),
+  ('toyota_rav4_2014.jpg', 'Motorcycle', 'Yamaha', 'XVZ1300A', '2001', '1.3', 'Бензин', '7', '75', '1');
+
+
+insert into motorcycles
+(EngineTypeByStrokes, DriveType, MotorcycleType, CarID)
+values
+  ('4-тактный', 'Цепь', 'Street', '1'),
+  ('2-тактный', 'Ремень', 'Chopper', '2'),
+  ('4-тактный', 'Кардан', 'Cruiser', '3');
+
+
+insert into VEHICLES
+(Image, VehicleType, Make, Model, ProductionYear, EngineCapacity, FuelType, FuelConsumption, RentPrice, IsAvailable)
+values
+  ('mercedes_c200_2014.jpg', 'PersonalCar', 'Mercedes', 'C200', '2008', '2.0', 'Diesel', '10', '45', '1'),
+  ('mercedes_c200_2014.jpg', 'PersonalCar', 'Toyota', 'RAV-4', '2009', '1.9', 'Fuel', '8.6', '50', '1'),
+  ('mercedes_c200_2014.jpg', 'PersonalCar', 'Volvo', 'V80', '2011', '1.8', 'Petrol', '7', '60', '1');
+
+insert into personalCar
+(LuxuryType, NumberOfDoors, BodyType, CarID)
+values
+  ('Lux', '5', 'Sedan', '4'),
+  ('SUV', '5', 'SUV', '5'),
+  ('Family', '5', 'Universal', '6');
+
+insert into VEHICLES
+(Image, VehicleType, Make, Model, ProductionYear, EngineCapacity, FuelType, FuelConsumption, RentPrice, IsAvailable)
+values
+  ('volvo_v60_2008.jpg', 'MiniBus', 'Scania', 'Hispano', '2005', '3.5', 'Diesel', '13.9', '85', '1'),
+  ('volvo_v60_2008.jpg', 'MiniBus', 'Mercedes-Benz', 'Sprinter', '2013', '2.4', 'Gasoline', '14.4', '105', '1'),
+  ('volvo_v60_2008.jpg', 'MiniBus', 'Ford', 'Transit', '2007', '4.5', 'Diesel', '16.9', '74', '1');
+
+insert into miniBus
+(MiniBusSeats, CargoVolume, MiniBusColor, CarID)
+values
+  ('12', '4.9', 'Yellow', '7'),
+  ('3', '50.7', 'Gray', '8'),
+  ('16', '12.6', 'White', '9');
+
+-- ------------------------------------------------------------------------------------------------------------------
+
+insert into ACCESSORIES
+(Accessory, RentPrice, AvailableFor)
+values
+  ('Moto GPS Navigator', '8', 'Motorcycle'),
+  ('Saddlebag', '5', 'Motorcycle'),
+  ('Slip-on Exhaust', '4', 'Motorcycle');
+-- ------------------------------------------------------------------------------------------------------------------
+
+
